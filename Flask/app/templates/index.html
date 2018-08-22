@@ -1,0 +1,15 @@
+<html>
+    	<title> Tuiter </title>
+    	<link rel= "stylesheet" href="{{url_for('static', filename = "css/bootstrap.min.css") }}">
+	</head>
+	<body>
+		<h1>Tuiter Cearence !</h1>
+		{% if user %}
+			<p> Bem Vindo Ao Tuiter {{ user }},  seu viciado </p>
+		{% else %}
+			<p> Bem Vindos viciados </p> 
+		{% endif %}
+
+		<script src= "url_for('static' , filename = "js/bootstrap.min.js")}}> </script>
+	</body>
+</html>

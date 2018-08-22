@@ -1,16 +1,9 @@
 ##definindo uma pagina;
 from app import app 
+from flask import render_template
 
 
-@app.route("/index")
-@app.route("/")
-def index():
-    return "Hello World"
-
-@app.route("/test" , defaults ={'name':None})
-@app.route("/test/<name>")
-def test(name):
-	if(name):
-		return "O %s ta aprendendo rotas" %name
-	else:
-		return "Alguém está aprendendo rotas"
+@app.route("/index/<user>")
+@app.route("/", defaults={"user":None})
+def index(user):
+    return render_template('index.html', user = user)
