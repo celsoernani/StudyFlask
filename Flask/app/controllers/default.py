@@ -1,6 +1,6 @@
 import os.path
 from app import app,db
-from flask import render_template, request
+from flask import render_template, request, jsonify
 from app.models.tables import Time, Partida
 from sqlalchemy import text
 from sqlalchemy import create_engine
@@ -9,11 +9,17 @@ from sqlalchemy.sql import select
 
 
 
+@app.route("/study",methods = ['POST'])	
+def study():
+	var = request.get_json(silent= True)
+
+	return jsonify({"teste":"testeFlask"})
 
 
 
 @app.route("/teste",methods = ['POST'])	
 def teste():
+
 	valor = (request.json.get('id'))
 	conn = db.engine.connect()
 	sql = text('SELECT estadio, data, gols_casa, gols_visitante FROM patidas WHERE id=:valor')
